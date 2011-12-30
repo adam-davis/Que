@@ -31,7 +31,7 @@
 				session_destroy();
 			}
 				
-		print '<form method="POST" action="scripts/login.php">
+		print '<h3>Login to ¿Que?</h3><form method="POST" action="scripts/login.php">
 		<label for="username">Username</label><input id="username" name="username" type="text"/><br/>
 		<label for="password">Password</label><input id="password" name="password" type="password"/><br/>
 		<input type="submit" value="Login"/> or <a href="register.php">Register</a>
