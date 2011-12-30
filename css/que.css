@@ -1,0 +1,49 @@
+#header{
+
+float:right;
+padding: 20px;
+
+
+}
+
+#logo
+{
+font-size:85px;
+
+}
+#mainContent
+{
+clear:right;
+
+}
+.siteLabel
+{
+	width: 140px;
+	float: left;
+
+}
+
+#questionTextBpx
+{
+	border: 1px;
+	
+	-moz-box-shadow: inset 0 0 1em red;
+	-webkit-box-shadow: inset 0 0 1em red;
+	box-shadow: inset 0 0 1em red;
+}
+#navLinks ul
+{
+	list-style-type: none;
+	
+	}
+	
+#logo a
+{
+	text-decoration: none;
+	
+}
+
+#logo a:visited
+{
+	color:black;
+}
