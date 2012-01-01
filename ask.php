@@ -20,11 +20,14 @@ else
 
 
 <?php startblock('mainContent') ?>
+<div id="formArea">
 <form name="questionForm" method="POST" action="scripts/ask.php">
-	<label id="questionLabel" for="question" class="siteLabel">What would you like to know?</label>
+	<label id="questionLabel" for="question" >What would you like to know?</label>
+	<br/><br/>
 	<textarea id="questionTextBpx" name="question" rows="20" cols="60" name="question"></textarea><br/>
-	<input type="submit" value="Ask away"/>
+	<input id="questionBtn" class="siteButton" type="submit" value="Ask away"/>
 </form>
+</div>
 <?php endblock() ?>
 
 
