@@ -6,7 +6,7 @@ require_once('../ti.php');
 
 
 <html>
-<title>¿Que? - Ask some questions</title>
+<title>&iquest;Que? - Ask some questions</title>
 
 <head>
 <link rel="stylesheet" href="css/que.css" type="text/css"></link>
@@ -21,7 +21,7 @@ require_once('../ti.php');
 <body>
 <div>
 <div id="header">
-<span id="logo"><a href="/que/index.php">¿Que?</a></span>
+<span id="logo"><a href="/que/index.php">&iquest;Que?</a></span>
 
 </div>
 <div id="mainContent">

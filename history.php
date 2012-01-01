@@ -35,9 +35,9 @@ foreach($questionsForUser as $question)
 
 	print $question->question()."<br/>\nAnswer: ";
 	if ($question->answer() != "")
-		print $question->answer();
+		print $question->answer()."<br/><br/>";
 	else
-		print "Not yet answered!";
+		print "Not yet answered!<br/><br/>";
 		
 
 

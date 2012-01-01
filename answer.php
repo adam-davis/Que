@@ -33,7 +33,6 @@ function answer(questionId)
 	{
 
 	if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-		alert(xmlHttp.responseText);
 		var question = document.getElementById("question"+questionId);
 		question.innerHTML = "Question has been Answered!";
 	
