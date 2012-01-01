@@ -32,9 +32,9 @@
 			}
 				
 		print '<h3>Login to &iquest;Que?</h3><form method="POST" action="scripts/login.php">
-		<label for="username">Username</label><input id="username" name="username" type="text"/><br/>
-		<label for="password">Password</label><input id="password" name="password" type="password"/><br/>
-		<input type="submit" value="Login"/> or <a href="register.php">Register</a>
+		<label class="siteLabel" for="username">Username</label><input id="username" name="username" type="text"/><br/>
+		<label  class="siteLabel" for="password">Password</label><input id="password" name="password" type="password"/><br/>
+		<input id="loginBtn" type="submit" value="Login"/> or <a href="register.php">Register</a>
 		</form>
 </div>';
 }?>

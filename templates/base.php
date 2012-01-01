@@ -21,9 +21,11 @@ require_once('../ti.php');
 <body>
 <div>
 <div id="header">
-<span id="logo"><a href="/que/index.php">&iquest;Que?</a></span>
+	<div id="logoHolder">
+	<span id="logoText"><a href="/que/index.php">&iquest;Que?</a></span>
+	</div>
+	</div>
 
-</div>
 <div id="mainContent">
 
 <?php startblock('mainContent') ?>

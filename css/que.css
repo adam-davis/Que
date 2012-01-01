@@ -7,9 +7,10 @@ padding: 20px;
 }
 #header
 {
-
+	background: -moz-linear-gradient(orange, white);
 	background-color: orange;
-
+	border-radius: 10px 10px 0 0;
+	min-height: 191px;
 }
 #logoText
 {
@@ -19,10 +20,25 @@ font-size:85px;
 #mainContent
 {
 	color: white;
-	min-height: 400px;
+	min-height: 450px;
 	clear:right;
-	padding: 20px;
+	padding: 60px;
 	background-color: #690303;
+	border-radius: 0 0 10px 10px;
+}
+
+#loginBtn
+{
+	margin-top: 20px;
+
+}
+#mainContent form a
+{
+	text-decoration: none;
+	color: white;
+	weight: strong;
+	font-size: 18px;
+
 }
 .siteLabel
 {
