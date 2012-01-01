@@ -6,6 +6,7 @@
 class Question
 {
 
+	private $_dbConn;
 
 	private $_id;
 	public function id() {return $this->_id;}
@@ -33,6 +34,7 @@ class Question
 		$this->_answer = $answer;
 		$this->_dateCreated = $dateCreated;
 		$this->_answered = $answered;
+		$this->_dbConn = getDbConn();
 
 	}
 
@@ -111,28 +113,25 @@ class Question
 	
 	public function answerQuestion($answer)
 	{
-		$db = getDbConn();
 		$query = sprintf("UPDATE Questions SET answered = TRUE, answer = '%s' WHERE id = %d", $answer, $this->id());
-		$db->exec($query);
+		$this->_dbConn->exec($query);
 		return $query;
 	}
 	
 	public function save()
 	{
-		$db = getDbConn();
 		$user = $this->_user;
 		$responder = $this->assignResponder();
 		$query = sprintf("INSERT INTO Questions (question, user, responder) VALUES ('%s', %d, %d)", $this->question(), $user, $responder);
-		$db->exec($query);
+		$this->_dbConn->exec($query);
 
 		return $query;
 	}
 	
 	private function assignResponder()
 	{
-		$db = getDbConn();
 		$query = sprintf("SELECT id from Users WHERE id != %d", $this->_user);
-		$ids = $db->query($query);
+		$ids = $this->_dbConn->query($query);
 		$result = $ids->fetchAll(PDO::FETCH_NUM);
 		$user = $result[rand(0, count($result)-1)];
 		return $user[0];

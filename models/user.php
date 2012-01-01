@@ -3,6 +3,7 @@ require_once('../config/config.php');
 
 class User
 {
+	private $_dbConn;
 	private $_id;
 	public function id()		{return $this->_id;}
 	private $_username;
@@ -21,6 +22,8 @@ class User
 		$this->_username = $username;
 		$this->_password = $password;
 		$this->_email = $email;
+		
+		$this->_dbConn = getDbConn();
 
 	}
 	
@@ -71,23 +74,19 @@ class User
 
 	public function delete()
 	{
-		
-		$db = getDbConn();
-		$db->exec("DELETE FROM Users WHERE username = $this->_username");
+		$this->_dbConn->exec("DELETE FROM Users WHERE username = $this->_username");
 	}
 	
 	public function update()
 	{
-		$db = getDbConn();
-		$db->exec(sprintf("UPDATE Users SET username = '%s', password = '%s', email = '%s' WHERE username = '%s'", $this->_username, $this->_password, $this->_email, $this->_username));
+		$this->_dbConn->exec(sprintf("UPDATE Users SET username = '%s', password = '%s', email = '%s' WHERE username = '%s'", $this->_username, $this->_password, $this->_email, $this->_username));
 	}
 	
 	
 	public function save()
 	{
-		$db = getDbConn();
 		$query  = sprintf("INSERT INTO Users (username, password, email) VALUES ('%s', '%s', '%s')", $this->_username, $this->_password, $this->_email);
-		$db->exec($query);
+		$this->_dbConn->exec($query);
 	}
 
 
