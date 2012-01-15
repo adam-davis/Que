@@ -6,7 +6,7 @@
 class Question
 {
 
-	private $_dbConn;
+
 
 	private $_id;
 	public function id() {return $this->_id;}
@@ -24,7 +24,23 @@ class Question
 	public function responder()		{return $this->_responder;}
 
 
+	static public function getQuestionsForUserJSON($user)
+	{
+		$db = getDbConn();
+		$questions = array();
+		$query = sprintf("SELECT * FROM Questions WHERE user = %d", $user);
+		$results = $db->query($query);
+		
+		while($question = $results->fetch())
+		{
+		
+			$questions[] = array("id" => $question['id'], "user" => $question['user'], "question" => $question['question'], "answer" => $question['answer'], "responder" => $question['responder'], "date_created" => $question['date_created'],  "answered" => $question['answered']);
+		
+		}
+		
+		return $questions;
 	
+	}
 	public function __construct($id, $user, $question, $answer, $responder ="", $dateCreated="", $answered="")
 	{
 		$this->_id = $id;
@@ -34,7 +50,7 @@ class Question
 		$this->_answer = $answer;
 		$this->_dateCreated = $dateCreated;
 		$this->_answered = $answered;
-		$this->_dbConn = getDbConn();
+
 
 	}
 
@@ -48,7 +64,7 @@ class Question
 		while($question = $results->fetch())
 		{
 		
-			$questions[] = new Question($question['id'], $question['user'], $question['question'], $question['answer'], $question['date_created'],  $question['answered']);
+			$questions[] = new Question($question['id'], $question['user'], $question['question'], $question['answer'], $question['responder'], $question['date_created'],  $question['answered']);
 		
 		}
 		
